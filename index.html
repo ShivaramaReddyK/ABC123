@@ -1,0 +1,851 @@
+<!doctype html>
+<html>
+
+<head>
+<meta charset="utf-8">
+<title>Fashion Store</title>
+<meta name="generator" content="#">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&amp;display=swap" rel="stylesheet">
+<link href="css/product.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/util.min.js"></script>
+<script src="js/carousel.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/modal.min.js"></script>
+<script src="js/min.js"></script>
+
+<!-- Script For the Grid and Paypal -->
+<script>
+$(document).ready(function()
+{
+   $("a[href*='#headerLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_headerLayoutGrid').offset().top }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#logoLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_logoLayoutGrid').offset().top }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#navigationLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_navigationLayoutGrid').offset().top }, 600, 'easeOutCirc');
+   });
+   $("a[href*='#welcomeLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_welcomeLayoutGrid').offset().top }, 600, 'easeOutCubic');
+   });
+   $("a[href*='#categoriesLayoutGrid1']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_categoriesLayoutGrid1').offset().top-57 }, 600, 'easeOutSine');
+   });
+   $("a[href*='#trendingLayoutGrid1']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_trendingLayoutGrid1').offset().top-57 }, 600, 'easeOutSine');
+   });
+   $("a[href*='#trendingLayoutGrid2']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_trendingLayoutGrid2').offset().top-57 }, 600, 'easeOutSine');
+   });
+   $("#welcome-carousel").on('slid.bs.carousel', function(e)
+   {
+      var index = $(e.relatedTarget).index();
+      switch(index)
+      {
+         case 0:
+            AnimateCss('my_welcome-text1', 'slide-left-in', 100, 1000);
+            AnimateCss('ny_welcome-text2', 'slide-right-in', 1000, 1000);
+            AnimateCss('welcome-button1', 'slide-down-in', 2000, 1000);
+            break;
+         case 1:
+            AnimateCss('my_welcome-text3', 'slide-left-in', 100, 1000);
+            AnimateCss('my_welcome-text4', 'slide-right-in', 1000, 1000);
+            AnimateCss('welcome-button2', 'slide-down-in', 2000, 1000);
+            break;
+         case 2:
+            AnimateCss('my_welcome-text5', 'slide-left-in', 100, 1000);
+            AnimateCss('my_welcome-text6', 'slide-right-in', 1000, 1000);
+            AnimateCss('welcome-button3', 'slide-down-in', 2000, 1000);
+            break;
+      }
+   });
+   $("#welcome-carousel").bootstrapcarousel({interval:6000, pause: false});
+   $("a[href*='#contactLayoutGrid']").click(function(event)
+   {
+      event.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $('#my_contactLayoutGrid').offset().top-57 }, 600, 'easeOutSine');
+   });
+   paypal.minicart.render({
+   styles: '@keyframes pop-in {    0% { opacity: 0; transform: scale(0.1); }    60% { opacity: 1; transform: scale(1.2); }    100% { transform: scale(1); }}@-webkit-keyframes pop-in {    0% { opacity: 0; -webkit-transform: scale(0.1); }    60% { opacity: 1; -webkit-transform: scale(1.2); }    100% { -webkit-transform: scale(1); }}@-moz-keyframes pop-in {    0% { opacity: 0; -moz-transform: scale(0.1); }    60% { opacity: 1; -moz-transform: scale(1.2); }    100% { -moz-transform: scale(1); }}.minicart-showing #PPMiniCart {    display: block;    transform: translateZ(0);    -webkit-transform: translateZ(0);    -moz-transform: translateZ(0);    animation: pop-in 0.25s;    -webkit-animation: pop-in 0.25s;    -moz-animation: pop-in 0.25s;}#PPMiniCart {    display: none;    position: fixed;    left: 50%;    top: 75px;}#PPMiniCart form {    position: relative;    width: 600px;    max-height: 400px;    margin-left: -300px;    padding: 10px 10px 40px;    background: #fbfbfb;    border: 1px solid #d7d7d7;    border-radius: 4px;    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);    font: 15px/normal arial, helvetica;    color: #333;}#PPMiniCart form.minicart-empty {    padding-bottom: 10px;    font-size: 16px;    font-weight: bold;}#PPMiniCart ul {    clear: both;    box-sizing: border-box;   float: left;    width: 100%;    margin: 5px 0 20px;    padding: 10px;    list-style-type: none;    background: transparent;    border: 0px solid #ccc; }#PPMiniCart .minicart-empty ul {    display: none;}#PPMiniCart .minicart-closer {    float: right;    margin: -12px -10px 0;    padding: 10px;    background: 0;    border: 0;    font-size: 18px;    cursor: pointer;    font-weight: bold;}#PPMiniCart .minicart-item {    clear: left;    padding: 6px 0;    min-height: 25px;}#PPMiniCart .minicart-item + .minicart-item {    border-top: 1px solid #f2f2f2;}#PPMiniCart .minicart-item a {    color: #333;    text-decoration: none;}#PPMiniCart .minicart-details-name {    float: left;    width: 62%;}#PPMiniCart .minicart-details-quantity {    float: left;    width: 15%;}#PPMiniCart .minicart-details-remove {    float: left;    width: 7%;}#PPMiniCart .minicart-details-price {    float: left;    width: 16%;    text-align: right;}#PPMiniCart .minicart-attributes {    margin: 0;    padding: 0;    background: transparent;    border: 0;    border-radius: 0;    box-shadow: none;    color: #999;    font-size: 12px;    line-height: 22px;}#PPMiniCart .minicart-attributes li {    display: inline;}#PPMiniCart .minicart-attributes li:after {    content: ",";}#PPMiniCart .minicart-attributes li:last-child:after {    content: "";}#PPMiniCart .minicart-quantity {    width: 30px;    height: 18px;    padding: 2px 4px;    border: 1px solid #ccc;    border-radius: 4px;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);    font-size: 13px;    text-align: right;    transition: border linear 0.2s, box-shadow linear 0.2s;    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;}#PPMiniCart .minicart-quantity:hover {    border-color: #0078C1;}#PPMiniCart .minicart-quantity:focus {    border-color: #0078C1;    outline: 0;    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 3px rgba(0, 120, 193, 0.4);}#PPMiniCart .minicart-remove {    width: 18px;    height: 19px;    margin: 2px 0 0;    padding: 0;    background: #b7b7b7;    border: 1px solid #a3a3a3;    border-radius: 3px;    color: #fff;    font-size: 13px;    opacity: 0.70;    cursor: pointer;}#PPMiniCart .minicart-remove:hover {    opacity: 1;}#PPMiniCart .minicart-footer {    clear: left;}#PPMiniCart .minicart-subtotal {    position: absolute;    bottom: 17px;    padding-left: 6px;    left: 10px;    font-size: 16px;    font-weight: bold;}#PPMiniCart .minicart-submit {    position: absolute;    bottom: 10px;    right: 10px;    min-width: 100px;    height: auto;    margin-right: 6px;    padding: 10px 16px;    text-align: left;   border: 1px solid #ffc727;    border-radius: 5px;    color: #000;    cursor: pointer;    background: #ffaa00;} #PPMiniCart .minicart-logo { display: block; vertical-align: bottom; width: 65px; height: 21px; }#PPMiniCart form {    font-family: Arial;   font-size: 13px;   text-align: left;   border-color: rgba(34,34,34,0.16);   border-radius: 0px;   background-color: #FBFBFB;   color: #222222;   box-shadow: 2px 2px 10px rgba(0,0,0,0.50);}#PPMiniCart .minicart-submit { background: #FFC439;   border: 1px solid #FFC439;   border-radius: 0px;   font-size: 0.9em;   color: #000000;}#PPMiniCart .minicart-item a{   color: #222222;}#PPMiniCart .minicart-item + .minicart-item{   border-top: 1px solid rgba(34,34,34,0.08);}#PPMiniCart .minicart-attributes{   font-size: 0.75em;   color: #222222;   opacity: 0.60;}#PPMiniCart .minicart-remove{   border-radius: 50%;}#PPMiniCart .minicart-subtotal{   font-size: 1.0em;}#PPMiniCart .minicart-quantity, #PPMiniCart .minicart-quantity:hover{   border: 1px solid rgba(34,34,34,0.27);   font-size: 1.0em;   color: #222222;}',
+   template: '<%var items = cart.items();var settings = cart.settings();var hasItems = !!items.length;var priceFormat = { format: true, currency: cart.settings("currency_code") };var totalFormat = { format: true, showCode: true };%><form method="post" class="<% if (!hasItems) { %>minicart-empty<% } %>" action="<%= config.action %>" target="<%= config.target %>">    <% if (hasItems) { %><span class="minicart-header"><%= config.strings.header %></span><% } %><button type="button" class="minicart-closer">&times;</button>    <ul>        <% for (var i= 0, idx = i + 1, len = items.length; i < len; i++, idx++) { %>        <li class="minicart-item">            <div class="minicart-details-name">                <a class="minicart-name" href="<%= items[i].get("href") %>"><%= items[i].get("item_name") %></a>                <ul class="minicart-attributes">                    <% if (items[i].get("item_number")) { %>                    <li>                        <%= items[i].get("item_number") %>                        <input type="hidden" name="item_number_<%= idx %>" value="<%= items[i].get("item_number") %>" />                    </li>                    <% } %>                    <% if (items[i].discount()) { %>                    <li>                        <%= config.strings.discount %> <%= items[i].discount(priceFormat) %>                        <input type="hidden" name="discount_amount_<%= idx %>" value="<%= items[i].discount() %>" />                    </li>                    <% } %>                    <% for (var options = items[i].options(), j = 0, len2 = options.length; j < len2; j++) { %>                        <li>                            <%= options[j].key %>: <%= options[j].value %>                            <input type="hidden" name="on<%= j %>_<%= idx %>" value="<%= options[j].key %>" />                            <input type="hidden" name="os<%= j %>_<%= idx %>" value="<%= options[j].value %>" />                        </li>                    <% } %>                </ul>            </div>            <div class="minicart-details-quantity">                <input class="minicart-quantity" data-minicart-idx="<%= i %>" name="quantity_<%= idx %>" type="text" pattern="[0-9]*" value="<%= items[i].get("quantity") %>" autocomplete="off" />            </div>            <div class="minicart-details-remove">                <button type="button" class="minicart-remove" data-minicart-idx="<%= i %>">&times;</button>            </div>            <div class="minicart-details-price">                <span class="minicart-price"><%= items[i].total(priceFormat) %></span>            </div>            <input type="hidden" name="item_name_<%= idx %>" value="<%= items[i].get("item_name") %>" />            <input type="hidden" name="amount_<%= idx %>" value="<%= items[i].amount() %>" />            <input type="hidden" name="shipping_<%= idx %>" value="<%= items[i].get("shipping") %>" />            <input type="hidden" name="shipping2_<%= idx %>" value="<%= items[i].get("shipping2") %>" />        </li>        <% } %>    </ul>    <div class="minicart-footer">        <% if (hasItems) { %>            <div class="minicart-terms"> <input type="checkbox" id="minicart-terms-checkbox" name="terms"><%= config.strings.terms %></div> <div class="minicart-subtotal">                <%= config.strings.subtotal %> <%= cart.total(totalFormat) %>            </div>            <button class="minicart-submit" type="submit" data-minicart-alt="<%= config.strings.buttonAlt %>"><%- config.strings.button %><svg class="minicart-logo" width="100" height="32" viewBox="0 0 100 32" xmlns="http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg" preserveAspectRatio="xMinYMin meet"><path fill="#003087" d="M 12 4.917 L 4.2 4.917 C 3.7 4.917 3.2 5.317 3.1 5.817 L 0 25.817 C -0.1 26.217 0.2 26.517 0.6 26.517 L 4.3 26.517 C 4.8 26.517 5.3 26.117 5.4 25.617 L 6.2 20.217 C 6.3 19.717 6.7 19.317 7.3 19.317 L 9.8 19.317 C 14.9 19.317 17.9 16.817 18.7 11.917 C 19 9.817 18.7 8.117 17.7 6.917 C 16.6 5.617 14.6 4.917 12 4.917 Z M 12.9 12.217 C 12.5 15.017 10.3 15.017 8.3 15.017 L 7.1 15.017 L 7.9 9.817 C 7.9 9.517 8.2 9.317 8.5 9.317 L 9 9.317 C 10.4 9.317 11.7 9.317 12.4 10.117 C 12.9 10.517 13.1 11.217 12.9 12.217 Z"></path><path fill="#003087" d="M 35.2 12.117 L 31.5 12.117 C 31.2 12.117 30.9 12.317 30.9 12.617 L 30.7 13.617 L 30.4 13.217 C 29.6 12.017 27.8 11.617 26 11.617 C 21.9 11.617 18.4 14.717 17.7 19.117 C 17.3 21.317 17.8 23.417 19.1 24.817 C 20.2 26.117 21.9 26.717 23.8 26.717 C 27.1 26.717 29 24.617 29 24.617 L 28.8 25.617 C 28.7 26.017 29 26.417 29.4 26.417 L 32.8 26.417 C 33.3 26.417 33.8 26.017 33.9 25.517 L 35.9 12.717 C 36 12.517 35.6 12.117 35.2 12.117 Z M 30.1 19.317 C 29.7 21.417 28.1 22.917 25.9 22.917 C 24.8 22.917 24 22.617 23.4 21.917 C 22.8 21.217 22.6 20.317 22.8 19.317 C 23.1 17.217 24.9 15.717 27 15.717 C 28.1 15.717 28.9 16.117 29.5 16.717 C 30 17.417 30.2 18.317 30.1 19.317 Z"></path><path fill="#003087" d="M 55.1 12.117 L 51.4 12.117 C 51 12.117 50.7 12.317 50.5 12.617 L 45.3 20.217 L 43.1 12.917 C 43 12.417 42.5 12.117 42.1 12.117 L 38.4 12.117 C 38 12.117 37.6 12.517 37.8 13.017 L 41.9 25.117 L 38 30.517 C 37.7 30.917 38 31.517 38.5 31.517 L 42.2 31.517 C 42.6 31.517 42.9 31.317 43.1 31.017 L 55.6 13.017 C 55.9 12.717 55.6 12.117 55.1 12.117 Z"></path><path fill="#009cde" d="M 67.5 4.917 L 59.7 4.917 C 59.2 4.917 58.7 5.317 58.6 5.817 L 55.5 25.717 C 55.4 26.117 55.7 26.417 56.1 26.417 L 60.1 26.417 C 60.5 26.417 60.8 26.117 60.8 25.817 L 61.7 20.117 C 61.8 19.617 62.2 19.217 62.8 19.217 L 65.3 19.217 C 70.4 19.217 73.4 16.717 74.2 11.817 C 74.5 9.717 74.2 8.017 73.2 6.817 C 72 5.617 70.1 4.917 67.5 4.917 Z M 68.4 12.217 C 68 15.017 65.8 15.017 63.8 15.017 L 62.6 15.017 L 63.4 9.817 C 63.4 9.517 63.7 9.317 64 9.317 L 64.5 9.317 C 65.9 9.317 67.2 9.317 67.9 10.117 C 68.4 10.517 68.5 11.217 68.4 12.217 Z"></path><path fill="#009cde" d="M 90.7 12.117 L 87 12.117 C 86.7 12.117 86.4 12.317 86.4 12.617 L 86.2 13.617 L 85.9 13.217 C 85.1 12.017 83.3 11.617 81.5 11.617 C 77.4 11.617 73.9 14.717 73.2 19.117 C 72.8 21.317 73.3 23.417 74.6 24.817 C 75.7 26.117 77.4 26.717 79.3 26.717 C 82.6 26.717 84.5 24.617 84.5 24.617 L 84.3 25.617 C 84.2 26.017 84.5 26.417 84.9 26.417 L 88.3 26.417 C 88.8 26.417 89.3 26.017 89.4 25.517 L 91.4 12.717 C 91.4 12.517 91.1 12.117 90.7 12.117 Z M 85.5 19.317 C 85.1 21.417 83.5 22.917 81.3 22.917 C 80.2 22.917 79.4 22.617 78.8 21.917 C 78.2 21.217 78 20.317 78.2 19.317 C 78.5 17.217 80.3 15.717 82.4 15.717 C 83.5 15.717 84.3 16.117 84.9 16.717 C 85.5 17.417 85.7 18.317 85.5 19.317 Z"></path><path fill="#009cde" d="M 95.1 5.417 L 91.9 25.717 C 91.8 26.117 92.1 26.417 92.5 26.417 L 95.7 26.417 C 96.2 26.417 96.7 26.017 96.8 25.517 L 100 5.617 C 100.1 5.217 99.8 4.917 99.4 4.917 L 95.8 4.917 C 95.4 4.917 95.2 5.117 95.1 5.417 Z"></path></svg></button>        <% } else { %>            <p class="minicart-empty-text"><%= config.strings.empty %></p>        <% } %>    </div>    <input type="hidden" name="cmd" value="_cart" />    <input type="hidden" name="upload" value="1" />    <% for (var key in settings) { %>        <input type="hidden" name="<%= key %>" value="<%= settings[key] %>" />    <% } %></form>',
+   strings: {
+      button: 'Check Out with ',
+      header: 'Your Order',
+      terms: 'I have read and agree to the Terms & Conditions',
+      subtotal: 'Total:',
+      discount: 'Discount:',
+      empty: 'Your shopping cart is empty'}
+   });
+   $('#PayPalShoppingCart1').click(function(e)
+   {
+      e.stopPropagation();
+      paypal.minicart.view.show();
+      paypal.minicart.view.redraw();
+   });
+   function updatePayPalCart()
+   {
+      var total = 0;
+      paypal.minicart.cart.items().forEach(function(item)
+      {
+         total += item._data.quantity;
+      });
+      $('#PayPalShoppingCart1-badge').text(total);
+      if (total > 0)
+      {
+         $('#PayPalShoppingCart1-badge').show();
+      }
+      else
+      {
+         $('#PayPalShoppingCart1-badge').hide();
+      }
+   }
+
+
+   updatePayPalCart();
+   paypal.minicart.cart.on('add', function()
+   {
+      updatePayPalCart();
+   });
+   paypal.minicart.cart.on('remove', function()
+   {
+      updatePayPalCart();
+   });
+   paypal.minicart.cart.on('change', function()
+   {
+      updatePayPalCart();
+   });
+   $('#product1Dialog').on('show.bs.modal', function (e)
+   {
+      $('#product1Dialog .modal-dialog').removeClass('animate-hide');
+      $('#product1Dialog .modal-dialog').addClass('animate-show');
+   });
+   $('#product1Dialog').on('hide.bs.modal', function (e)
+   {
+      $('#product1Dialog .modal-dialog').removeClass('animate-show');
+      var element = document.getElementById('product1Dialog');
+      var forceReflow = element.offsetWidth;
+      $('#product1Dialog .modal-dialog').addClass('animate-hide');
+   });
+   $('#product1Dialog .modal-dialog').draggable({handle: '.modal-header'});
+   $("#my_quantity button").on('click', function()
+   {
+      var $input = $('#quantity');
+      var oldVal = $input.val().trim();
+      var newVal = 0;
+      if ($(this).attr('data-dir') == 'up')
+      {
+         if (oldVal < 10)
+         {
+            newVal = parseFloat(oldVal) + 1;
+         }
+         else
+         {
+            newVal = 10;
+         }
+      }
+      else
+      {
+         if (oldVal > 1)
+         {
+            newVal = parseFloat(oldVal) - 1;
+         }
+         else
+         {
+            newVal = 1;
+         }
+      }
+      $input.val(newVal);
+      $input.trigger('change');
+   });
+   $("#quantity").change(function()
+   {
+      $('#amount').val('$' + (Number($('#quantity').val())*35.79).toFixed(2));
+   });
+   $("#quantity").trigger('change');
+   $('body').on('click','[data-ecommerce-platform="paypal"]', function(e)
+   {
+      e.preventDefault();
+      e.stopPropagation();
+      paypal.minicart.cart.add(
+      {
+         amount: $(this).attr('data-amount'),
+         business: $(this).attr('data-business'),
+         currency_code: $(this).attr('data-currency-code'),
+         item_name: $(this).attr('data-item-name'),
+         item_number: $(this).attr('data-item-number'),
+         return: $(this).attr('data-success-url'),
+         cancel_return: $(this).attr('data-cancel-url')
+      });
+   });
+});
+</script>
+<!-- Script For the Grid and Paypal ENDS HERE -->
+
+
+<!-- PART 1 TUTORIAL STARTS HERE -->
+<!-- START HERE TUTORIAL PART 1 -->
+<script>
+// Note: this code dynamically updates the 'Cart' text in the main menu (4th item)
+$(document).ready(function()
+{
+   $('#navigationMenu li:nth-child(4)').click(function(e)
+   {
+      e.stopPropagation();
+      e.preventDefault();
+      paypal.minicart.view.show();
+      paypal.minicart.view.redraw();
+   });
+   function updateCartText()
+   {
+      var total = 0;
+      paypal.minicart.cart.items().forEach(function(item)
+      {
+         total += item._data.quantity;
+      });
+      if (total > 0)
+      {
+         $('#navigationMenu li:nth-child(4) a').attr('data-total', '(' + total + ')');
+
+      }
+      else
+      {
+         $('#navigationMenu li:nth-child(4) a').attr('data-total', '(empty)');
+      }
+   }
+   updateCartText();
+   paypal.minicart.cart.on('add', function()
+   {
+      updateCartText();
+   });
+   paypal.minicart.cart.on('remove', function()
+   {
+      updateCartText();
+   });
+   paypal.minicart.cart.on('change', function()
+   {
+      updateCartText();
+   });
+});
+</script>
+</head>
+
+<!-- Body section -->
+<body>
+
+   <!-- HEADER LAYOUT GRID -->
+<div id="my_headerLayoutGrid">
+<div id="headerLayoutGrid">
+<div class="row">
+
+<div class="col-1">
+<div id="my_headerIcon1" style="display:inline-block;width:20px;height:20px;text-align:center;z-index:0;">
+<div id="headerIcon1"><i class="fa fa-facebook"></i></div>
+</div>
+
+<div id="my_headerIcon2" style="display:inline-block;width:20px;height:20px;text-align:center;z-index:1;">
+<div id="headerIcon2"><i class="fa fa-twitter"></i></div>
+</div>
+
+<div id="my_headerIcon3" style="display:inline-block;width:20px;height:20px;text-align:center;z-index:2;">
+<div id="headerIcon3"><i class="fa fa-instagram"></i></div>
+</div>
+<!-- <div id="my_headerIcon4" style="display:inline-block;width:20px;height:20px;text-align:center;z-index:3;">
+<div id="headerIcon4"><i class="fa fa-github"></i></div>
+</div> -->
+</div>
+
+<!-- START of path Card -->
+<div class="col-2">
+<div id="my_PayPalShoppingCart1" style="display:inline-block;width:32px;height:32px;text-align:center;z-index:4;">
+<svg id="PayPalShoppingCart1" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <path d="M709 794 C726 777, 746 768, 769 768 C791 768, 811 777, 828 794 C844 811, 852 831, 853 854 C852 877, 844 896, 828 913
+   C811 930, 791 938, 769 938 C746 938, 726 930, 709 913 C691 896, 683 877, 683 854 C683 831, 691 811, 709 794 Z M85 86 L225 86
+   L265 170 L897 170 C909 170, 919 174, 927 183 C935 193, 939 202, 939 214 C939 215, 937 222, 933 234 L781 510 C765 539, 740 554,
+    707 554 L389 554 L351 624 L349 630 C349 637, 352 640, 359 640 L853 640 L853 726 L341 726 C318 726, 298 717, 282 700 C265 683,
+     257 663, 257 640 C257 627, 260 613, 267 600 L325 494 L171 170 L85 170Z  M282 794 C298 777, 318 768, 341 768 C362 768, 383 777,
+     401 794 C418 811, 427 831, 427 854 C427 877, 418 896, 401 913 C383 930, 362 938, 341 938 C318 938, 298 930, 282 913 C265 896,
+      257 877, 257 854 C257 831, 265 811, 282 794"/>
+</svg>
+
+<span id="PayPalShoppingCart1-badge">0</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+ <!-- END HEADER LAYOUT GRID -->
+
+<!-- Logo Layout Grid  -->
+<div id="my_logoLayoutGrid">
+<div id="logoLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div id="my_logoHeading" style="display:inline-block;width:100%;z-index:5;">
+<h1 id="logoHeading">FASHION STORE</h1>
+</div>
+
+<div id="my_logoText2">
+<span style="color:#FFFFFF;font-family:Arial;font-size:19px;"> EVERYDAY DAY - STORE - IN ONE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- End Logo Layout Grid -->
+
+<!-- Navigation lAYOUT GRID Starts Here -->
+<div id="my_navigationLayoutGrid">
+<div id="navigationLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div id="my_navigationMenu" style="display:inline-block;width:100%;z-index:9;vertical-align:top;">
+<ul id="navigationMenu">
+<li><a href="#logoLayoutGrid">Home</a></li>
+<li><a href="#trendingLayoutGrid1">Shop</a></li>
+<li><a href="product_details.html">Product Detail</a></li>
+<li><a href="#" title="Shopping Cart"><i class="fa fa-shopping-cart">&nbsp;</i>Cart</a></li>
+<li><a href="#contactLayoutGrid">Contact</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<!-- End Navigation LAYOUT Grid -->
+
+<!-- Welcome Layout Grid Start Here -->
+<div id="my_welcomeLayoutGrid">
+<div id="welcomeLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div id="my_welcome-carousel" style="">
+<div id="welcome-carousel" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#welcome-carousel" data-slide-to="0" class="active"></li>
+<li data-target="#welcome-carousel" data-slide-to="1"></li>
+<li data-target="#welcome-carousel" data-slide-to="2"></li>
+</ol>
+<div class="carousel-inner">
+<div class="carousel-item frame-1 active">
+<div class="carousel-innerframe">
+<div id="my_welcome-text1">
+<p style="font-size:24px;line-height:27.5px;"><span style="font-size:21px;line-height:24.5px;">NEW FASHION 2022</span></p>
+</div>
+<div id="my_welcome-text2">
+<p style="font-size:13px;line-height:16px;"><span style="font-size:27px;line-height:30px;font-weight:bold;">35% OFF ON NEW COLLECTIONS</span></p>
+</div>
+<a id="welcome-button1" href="#categoriesLayoutGrid1" target="_blank" style="display:inline-block;width:170px;height:37px;z-index:12;">EXPLORE NOW</a>
+</div>
+</div>
+
+<div class="carousel-item frame-2">
+<div class="carousel-innerframe">
+<div id="my_welcome-text3">
+<p>NEW COLLECTIONS 2022</p>
+</div>
+<div id="my_welcome-text4">
+<p style="font-weight:bold;">UP TO 30% OFF ON EACH ITEM</p>
+</div>
+
+<a id="welcome-button2" href="#categoriesLayoutGrid1" target="_blank" style="display:inline-block;width:170px;height:37px;z-index:15;">BUY NOW</a>
+</div>
+</div>
+
+<div class="carousel-item frame-3">
+<div class="carousel-innerframe">
+<div id="my_welcome-text5">
+<p>NEW BRAND 2022</p>
+</div>
+<div id="my_welcome-text6">
+<p style="font-weight:bold;">UP TO 45% OFF WHEN SUBSCRIBING</p>
+</div>
+<a id="welcome-button3" href="#categoriesLayoutGrid1" target="_blank" style="display:inline-block;width:170px;height:37px;z-index:18;">BROWSE NOW</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<!-- Welcome Layout Grid End Here -->
+<!-- PART 1 TUTORIAL ENDS HERE -->
+
+
+<!-- PART 2 TUTORIAL STARTS HERE  -->
+<!-- Sticky Layer Start Here -->
+<div id="upStickyLayer" style="position:fixed;text-align:left;left:auto;right:25px;top:auto;bottom:25px;width:50px;height:50px;z-index:86;">
+<div id="my_upIcon" style="position:absolute;left:9px;top:8px;width:24px;height:24px;text-align:center;z-index:20;">
+<a href="#logoLayoutGrid"><div id="upIcon"><i class="fa fa-arrow-up"></i></div></a></div>
+</div>
+<!-- Sticky Layer End Here -->
+
+<!-- categoriesLayoutGrid1 Starts Here -->
+<div id="my_categoriesLayoutGrid1">
+<div id="categoriesLayoutGrid1">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="my_categoriesText1">
+<span style="color:#000000;font-family:Arial;font-size:19px;"><strong>BROWSE CATEGORIES</strong></span>
+</div>
+<div id="my_categoriesText2">
+<span style="color:#808080;font-family:Arial;font-size:13px;">LOOK FOR YOUR DREAM CLOTHES</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- categoriesLayoutGrid1 Ends Here -->
+
+
+
+<!-- categoriesLayoutGrid2 Starts Here -->
+<div id="my_categoriesLayoutGrid2">
+<div id="categoriesLayoutGrid2">
+<div class="row">
+<div class="col-1">
+<div id="my_categoriesImage1" style="display:inline-block;width:100%;height:auto;z-index:23;">
+<a href="#trendingLayoutGrid2"><img src="images/corsaj.jpg" id="categoriesImage1" alt="" width="303" height="424"></a><div id="categoriesImage1-overlay">SHIRTS</div>
+</div>
+
+<div id="my_categoriesImage1" style="display:inline-block;width:100%;height:auto;z-index:24;">
+<a href="#trendingLayoutGrid2"><img src="images/yeezy-sneakers.png" id="categoriesImage2" alt="" width="303" height="202"></a><div id="categoriesImage2-overlay">YEEZY-350</div>
+</div>
+</div>
+
+<div class="col-1">
+<div id="my_categoriesImage1" style="display:inline-block;width:100%;height:auto;z-index:23;">
+<a href="#trendingLayoutGrid2"><img src="images/earrings1.jpg" id="categoriesImage1" alt="" width="303" height="424"></a><div id="categoriesImage1-overlay">NECKLACE</div>
+</div>
+
+<div id="my_categoriesImage2" style="display:inline-block;width:100%;height:auto;z-index:24;">
+<a href="#trendingLayoutGrid2"><img src="images/firetv.jpg" id="categoriesImage2" alt="" width="303" height="202"></a><div id="categoriesImage2-overlay">FIRE TV</div>
+</div>
+
+</div>
+
+<div class="col-2">
+
+
+<div id="my_categoriesImage2" style="display:inline-block;width:100%;height:auto;z-index:24;">
+<a href="#trendingLayoutGrid2"><img src="images/ajlow.jpeg" id="categoriesImage2" alt="" width="303" height="202"></a><div id="categoriesImage2-overlay">AIR JORDAN</div>
+</div>
+
+<!-- <div id="my_responsive-spacer" style="display:inline-block;width:100%;z-index:25;position:relative;">
+<svg id="responsive-spacer" height="100%" width="100%" style="position:absolute;height:100%;width:100%;left:0;top:0;overflow:visible;" viewBox="0 0 303 19" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<defs>
+   <path id="responsive-spacer-shape" d="M0 0 L303 0 L303 19 L0 19Z " vector-effect="non-scaling-stroke" />
+</defs>
+<use xlink:href="#responsive-spacer-shape" data-href="#responsive-spacer-shape" style="fill:#FFFFFF;stroke:#0963AD;stroke-width:0"/>
+</svg>
+</div> -->
+
+<div id="my_categoriesImage3" style="display:inline-block;width:100%;height:auto;z-index:25;">
+<a href="#trendingLayoutGrid2"><img src="images/mansuit2.png" id="categoriesImage3" alt="" width="303" height="202"></a><div id="categoriesImage3-overlay">MAN SUIT</div>
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+<!-- categoriesLayoutGrid2 Ends Here -->
+
+
+<!-- trendingLayoutGrid1 starts Here -->
+<div id="my_trendingLayoutGrid1">
+<div id="trendingLayoutGrid1">
+<div class="row">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="my_trendingText1">
+<span style="color:#000000;font-family:Arial;font-size:19px;"><strong>TOP TRENDING PRODUCTS</strong></span>
+</div>
+<div id="my_trendingText2">
+<span style="color:#808080;font-family:Arial;font-size:13px;">BUY WITH CONFIDENCE</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- trendingLayoutGrid1 Ends Here -->
+<!-- PART 2 TUTORIAL ENDS HERE -->
+
+
+<!-- PART 3 TUTORIAL STARTS HERE -->
+<!-- trendingLayoutGrid2 Starts Here -->
+<div id="my_trendingLayoutGrid2">
+<div id="trendingLayoutGrid2">
+<div class="row">
+<div class="col-1">
+<div id="my_trendingCard1" style="display:flex;width:100%;z-index:30;overflow:hidden" class="card">
+   <div id="trendingCard1-card-body">
+      <img id="trendingCard1-card-item0" src="images/smartwatch.png" width="256" height="256" alt="" title="">
+      <div id="trendingCard1-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.jdmah.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard1-card-item2">
+      <div id="trendingCard1-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="150.99" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="https://www.jdmah.com/" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard1-card-item4">Smart Watch</div>
+      <div id="trendingCard1-card-item5">Stay connected and stylish with our Smart Watch, featuring advanced health tracking, notifications, and a sleek design for the modern tech-savvy individual.</div>
+      <div id="trendingCard1-card-item6">₹4999</div>
+   </div>
+</div>
+</div>
+<div class="col-2">
+<div id="my_trendingCard2" style="display:flex;width:100%;z-index:31;overflow:hidden" class="card">
+   <div id="trendingCard2-card-body">
+      <img id="trendingCard2-card-item0" src="images/tshirt5.jpg" width="400" height="400" alt="" title="">
+      <div id="trendingCard2-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.jdmah.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard2-card-item2">
+      <div id="trendingCard2-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="25.99" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="#" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard2-card-item4">Men's T-Shirt</div>
+      <div id="trendingCard2-card-item5"> Elevate your casual look with our Men's T-Shirt, crafted from premium cotton for unmatched comfort and timeless style that suits any occasion.</div>
+      <div id="trendingCard2-card-item6">₹1499</div>
+   </div>
+</div>
+</div>
+<div class="col-3">
+<div id="my_trendingCard3" style="display:flex;width:100%;z-index:32;overflow:hidden" class="card">
+   <div id="trendingCard3-card-body">
+      <img id="trendingCard3-card-item0" src="images/top1.jpg" width="400" height="400" alt="" title="">
+      <div id="trendingCard3-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.jdmah.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard3-card-item2">
+      <div id="trendingCard3-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="19.99" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="#" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard3-card-item4">Women's Dress</div>
+      <div id="trendingCard3-card-item5">Embrace elegance and grace in our Women's Dress, designed with a flattering silhouette, vibrant colors, and attention to detail to make you the center of attention at any event.</div>
+      <div id="trendingCard3-card-item6">₹2999</div>
+   </div>
+</div>
+</div>
+<div class="col-4">
+<div id="my_trendingCard4" style="display:flex;width:100%;z-index:33;overflow:hidden" class="card">
+   <div id="trendingCard4-card-body">
+      <img id="trendingCard4-card-item0" src="images/womanpurse.jpg" width="400" height="400" alt="" title="">
+      <div id="trendingCard4-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.jdmah.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard4-card-item2">
+      <div id="trendingCard4-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="190.99" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="#" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard4-card-item4">Women's Purse</div>
+      <div id="trendingCard4-card-item5"> Carry your essentials in style with our Women's Purse, a chic and functional accessory that complements your fashion sense while keeping your belongings organized.</div>
+      <div id="trendingCard4-card-item6">₹7999</div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- trendingLayoutGrid2 Ends Here -->
+
+<!-- trendingLayoutGrid3 Starts Here -->
+<div id="my_trendingLayoutGrid3">
+<div id="trendingLayoutGrid3">
+<div class="row">
+<div class="col-1">
+<div id="my_trendingCard5" style="display:flex;width:100%;z-index:34;overflow:hidden" class="card">
+   <div id="trendingCard5-card-body">
+      <img id="trendingCard5-card-item0" src="images/gimbalmo.jpg" width="400" height="400" alt="" title="">
+      <div id="trendingCard5-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.jdmah.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard5-card-item2">
+      <div id="trendingCard5-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="590.85" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="#" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard5-card-item4">Moza Air2</div>
+      <div id="trendingCard5-card-item5"> Unleash your creativity with the Moza Air 2, a versatile and professional-grade gimbal stabilizer for capturing smooth and cinematic video footage, perfect for filmmakers and content creators.</div>
+      <div id="trendingCard5-card-item6">₹42999</div>
+   </div>
+</div>
+</div>
+<div class="col-2">
+<div id="my_trendingCard6" style="display:flex;width:100%;z-index:35;overflow:hidden" class="card">
+   <div id="trendingCard6-card-body">
+      <img id="trendingCard6-card-item0" src="images/manshort.jpg" width="400" height="400" alt="" title="">
+      <div id="trendingCard6-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.wysiwygwebbuilder.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard6-card-item2">
+      <div id="trendingCard6-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="29.98" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="#" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard6-card-item4">Men's Short</div>
+      <div id="trendingCard6-card-item5">Experience comfort and versatility with our Men's Shorts, designed for active lifestyles and casual outings, offering a perfect blend of style and functionality.</div>
+      <div id="trendingCard6-card-item6">₹899</div>
+   </div>
+</div>
+</div>
+<div class="col-3">
+<div id="my_trendingCard7" style="display:flex;width:100%;z-index:36;overflow:hidden" class="card">
+   <div id="trendingCard7-card-body">
+      <img id="trendingCard7-card-item0" src="images/earrings2.jpg" width="400" height="400" alt="" title="">
+      <div id="trendingCard7-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.jdmah.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard7-card-item2">
+      <div id="trendingCard7-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="59.95" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="#" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard7-card-item4">Women's Earrings</div>
+      <div id="trendingCard7-card-item5">Add a touch of elegance to your ensemble with our Women's Earrings, featuring exquisite designs and high-quality materials that make a statement on any occasion.</div>
+      <div id="trendingCard7-card-item6">₹1299</div>
+   </div>
+</div>
+</div>
+<div class="col-4">
+<div id="my_trendingCard8" style="display:flex;width:100%;z-index:37;overflow:hidden" class="card">
+   <div id="trendingCard8-card-body">
+      <img id="trendingCard8-card-item0" src="images/mansuit3.png" width="400" height="400" alt="" title="">
+      <div id="trendingCard8-card-item1" onclick="$('#product1Dialog').modal('show');return false;"><a href="https://www.jdmah.com/" title="Quick View"><i class="fa fa-search"></i>&nbsp;&nbsp;Quick View</a></div>
+      <hr id="trendingCard8-card-item2">
+      <div id="trendingCard8-card-item3" data-ecommerce-platform="paypal" data-business="paypal@mail.com" data-item-name="Product 0001" data-item-number="SKU0001" data-amount="75.92" data-currency-code="USD" data-success-url="http://www.yourwebsite.com/" data-cancel-url="http://www.yourwebsite.com/" data-cmd="_cart"><a href="#" title="Add to cart"><i class="fa fa-shopping-bag"></i>&nbsp;&nbsp;Add to cart</a></div>
+      <div id="trendingCard8-card-item4">Men's Suit</div>
+      <div id="trendingCard8-card-item5">Make a lasting impression with our Men's Suit, tailored to perfection with impeccable craftsmanship, creating a confident and sophisticated look for formal events and business meetings.</div>
+      <div id="trendingCard8-card-item6">₹4799</div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- trendingLayoutGrid3 Ends Here -->
+
+<!-- servicesLayoutGrid Starts Here -->
+<div id="my_servicesLayoutGrid">
+<div id="servicesLayoutGrid">
+<div class="row">
+<div class="col-1">
+<div id="my_servicesCard1" style="display:inline-block;width:212px;height:59px;z-index:38;" class="card">
+   <div id="servicesCard1-card-body">
+      <div id="servicesCard1-card-item0"><i class="fa fa-truck"></i></div>
+      <div id="servicesCard1-card-item1">FREE SHIPPING</div>
+      <div id="servicesCard1-card-item2">Free shipping worlwide</div>
+   </div>
+</div>
+</div>
+<div class="col-2">
+<div id="my_servicesCard2" style="display:inline-block;width:203px;height:59px;z-index:39;" class="card">
+   <div id="servicesCard2-card-body">
+      <div id="servicesCard2-card-item0"><i class="fa fa-phone"></i></div>
+      <div id="servicesCard2-card-item1">24 X 7 SERVICE</div>
+      <div id="servicesCard2-card-item2">Quick Support</div>
+   </div>
+</div>
+</div>
+<div class="col-3">
+<div id="my_servicesCard3" style="display:inline-block;width:209px;height:59px;z-index:40;" class="card">
+   <div id="servicesCard3-card-body">
+      <div id="servicesCard3-card-item0"><i class="fa fa-tag"></i></div>
+      <div id="servicesCard3-card-item1">SPECIAL OFFER</div>
+      <div id="servicesCard3-card-item2">Amazing deals</div>
+   </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- servicesLayoutGrid Ends Here -->
+
+<!-- contactLayoutGrid Starts Here -->
+<div id="my_contactLayoutGrid">
+<div id="contactLayoutGrid">
+<div class="col-1">
+<div class="col-1-padding">
+<div id="my_IconFont14" style="display:inline-block;width:46px;height:48px;text-align:center;z-index:50;">
+<div id="IconFont14"><i class="fa fa-map-marker"></i></div>
+</div>
+<div id="my_Heading9" style="display:inline-block;width:100%;z-index:51;">
+<h3 id="Heading9">Address</h3>
+</div>
+<div id="my_Heading12" style="display:inline-block;width:100%;z-index:52;">
+<h3 id="Heading12">123, E-city, Bengaluru </h3>
+</div>
+<div id="my_IconFont16" style="display:inline-block;width:46px;height:48px;text-align:center;z-index:53;">
+<div id="IconFont16"><i class="fa fa-phone"></i></div>
+</div>
+<div id="my_Heading10" style="display:inline-block;width:100%;z-index:54;">
+<h3 id="Heading10">Phone Number</h3>
+</div>
+<div id="my_Heading13" style="display:inline-block;width:100%;z-index:55;">
+<h3 id="Heading13">111 2233 4455</h3>
+</div>
+<div id="my_IconFont17" style="display:inline-block;width:46px;height:48px;text-align:center;z-index:56;">
+<div id="IconFont17"><i class="fa fa-envelope"></i></div>
+</div>
+<div id="my_Heading11" style="display:inline-block;width:100%;z-index:57;">
+<h3 id="Heading11">E-mail</h3>
+</div>
+<div id="my_Heading14" style="display:inline-block;width:100%;z-index:58;">
+<h3 id="Heading14">contact@mywebsite.com</h3>
+</div>
+</div>
+</div>
+<div class="col-2">
+<div class="col-2-padding">
+<div id="my_contactHeading" style="display:inline-block;width:100%;z-index:59;">
+<h1 id="contactHeading">CONTACT US</h1>
+</div>
+<input type="text" id="contactName" style="display:block;width: 100%;height:36px;z-index:60;" name="name" value="" spellcheck="false" placeholder="Name">
+<input type="text" id="contactEmail" style="display:block;width: 100%;height:36px;z-index:61;" name="email" value="" spellcheck="false" placeholder="Email">
+<textarea name="message" id="contactMessage" style="display:block;width: 100%;;height:144px;z-index:62;" rows="7" cols="74" spellcheck="false" placeholder="How can we help?"></textarea>
+<input type="submit" id="contactButton" name="" value="Submit" style="display:inline-block;width:95px;height:36px;z-index:63;">
+<hr id="Line5" style="display:block;width: 100%;z-index:64;">
+</div>
+</div>
+</div>
+</div>
+<!-- contactLayoutGrid Ends Here -->
+
+<!-- Links Starts Here -->
+<div id="my_links">
+<div id="links-overlay"></div>
+<div id="links">
+<div class="row">
+<div class="col-1">
+<div id="my_linksText1">
+<span style="color:#FFFFFF;"><strong>CUSTOMER SERVICES</strong></span>
+</div>
+<div id="my_linksMenu1" style="display:inline-block;width:100%;z-index:66;">
+<ul id="linksMenu1" role="menubar" class="nav">
+<li role="menuitem" class="nav-item firstmain"><a class="nav-link" href="#" target="_self">Help&nbsp;&amp;&nbsp;Contact&nbsp;Us</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="#" target="_self">Returns&nbsp;&amp;&nbsp;Refunds</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="#" target="_self">Online&nbsp;Stores</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="#" target="_self">Terms&nbsp;&amp;&nbsp;Conditions</a>
+</li>
+</ul>
+
+</div>
+</div>
+<div class="col-2">
+<div id="my_linksText2">
+<span style="color:#FFFFFF;"><strong>COMPANY</strong></span>
+</div>
+<div id="my_linksMenu2" style="display:inline-block;width:100%;z-index:68;">
+<ul id="linksMenu2" role="menubar" class="nav">
+<li role="menuitem" class="nav-item firstmain"><a class="nav-link" href="#" target="_self">What&nbsp;We&nbsp;Do</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="#" target="_self">Services</a>
+
+<li role="menuitem" class="nav-item"><a class="nav-link" href="#" target="_self">Support</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="#" target="_self">Privacy&nbsp;Policy</a>
+</li>
+</ul>
+
+</div>
+</div>
+<!-- ************* SOCIAL MEDIA **************** -->
+<div class="col-3">
+<div id="my_linksText3">
+<span style="color:#FFFFFF;"><strong>SOCIAL MEDIA</strong></span>
+</div>
+<div id="my_linksMenu3" style="display:inline-block;width:100%;z-index:70;">
+<ul id="linksMenu3" role="menubar" class="nav">
+<li role="menuitem" class="nav-item firstmain"><a class="nav-link" href="https://www.facebook.com" rel="noreferrer" target="_blank" title="Facebook">Facebook</a>
+</li>
+
+<li role="menuitem" class="nav-item"><a class="nav-link" href="https://twitter.com/" rel="noreferrer" target="_blank" title="Twitter">Twitter</a>
+</li>
+<li role="menuitem" class="nav-item"><a class="nav-link" href="https://www.youtube.com" rel="noreferrer" target="_blank" title="YouTube">YouTube</a>
+</li>
+</ul>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+<!-- Links Ends Here -->
+
+<!-- footer Starts Here -->
+<div id="my_footer">
+<div id="footer">
+<div class="row">
+<div class="col-1">
+<div id="my_footer-text">
+<span style="color:#FFFFFF;">Copyright © 2023 AVENGERS@RYMEC.&nbsp; All Rights Reserved</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- footer Ends Here -->
+
+<!-- product1Dialog Starts here -->
+<div id="product1Dialog" class="modal fade" role="dialog">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+<h4 class="modal-title">Quick View</h4>
+</div>
+<div class="modal-body">
+<div id="my_product1Heading" style="position:absolute;left:26px;top:19px;width:588px;height:37px;z-index:74;">
+<h2 id="product1Heading">Great Product</h2></div>
+<div id="my_product1Text" style="position:absolute;left:278px;top:78px;width:364px;height:75px;z-index:75;">
+<span style="color:#000000;font-family:Arial;font-size:13px;">Indulge your senses with our Women's Perfume. This exquisite fragrance is a blend of floral and oriental notes, creating a captivating and long-lasting scent that complements your elegance and leaves a memorable trace wherever you go. </span></div>
+<form action="https://www.paypal.com/cgi-bin/webscr" id="PayPal2_form" method="post" style="margin:0;padding:0;" target="PayPal">
+<input type="hidden" name="business" value="orders@fashionstore.com">
+<input type="hidden" name="cmd" value="_cart">
+<input type="hidden" name="add" value="1">
+<input type="hidden" name="item_name" value="Great Product">
+<input type="hidden" name="item_number" value="SKU001">
+<input type="hidden" name="amount" value="35.79">
+<input type="hidden" name="currency_code" value="USD">
+<input type="hidden" name="return" value="">
+<input type="hidden" name="cancel_return" value="">
+<input type="hidden" name="receiver_email" value="orders@fashionstore.com">
+<input type="hidden" name="no_shipping" value="0">
+<input type="hidden" name="no_note" value="1">
+<input type="hidden" name="on0" value="Size">
+<div id="my_quantity" style="position:absolute;left:430px;top:172px;width:118px;height:30px;text-align:center;">
+<div class="input-group">
+<span class="input-group-btn">
+<button class="btn btn-default" data-dir="down" title="Spinner Down" type="button">&#8722;</button>
+</span>
+<input type="text" id="quantity" name="quantity" value="1" title="Quantity">
+<span class="input-group-btn">
+<button class="btn btn-default" data-dir="up" title="Spinner Up" type="button">+</button>
+</span>
+</div></div>
+<select name="os0" size="1" id="size" style="position:absolute;left:279px;top:172px;width:134px;height:30px;z-index:76;">
+<option selected value="Small">Small</option>
+<option value="Medium">Medium</option>
+<option value="Large">Large</option>
+<option value="X-Large">X-Large</option>
+</select>
+<input id="PayPal2" type="image" name="submit" src="images/buy-paypal-logo.png" style="position:absolute;left:278px;top:280px;z-index:76;" alt="Make payments with PayPal, it's fast, free, and secure!">
+</form>
+<input type="text" id="amount" style="position:absolute;left:335px;top:228px;width:88px;height:16px;z-index:77;" name="amount" value="$35.79" spellcheck="false">
+<label for="servicesLayoutGrid" id="Label1" style="position:absolute;left:278px;top:227px;width:45px;height:16px;line-height:16px;z-index:78;">Total:</label>
+<div id="my_Shape1" style="position:absolute;left:26px;top:78px;width:236px;height:236px;z-index:79;">
+<div id="Shape1"><div id="Shape1_text"><div><span style="color:#F5F5F5;font-family:Arial;font-size:13px;">
+
+<!-- IMAGE IN THE QUICK VIEW MODAL POP UP -->
+ <img id="relatedCard2-card-item0" src="images/tresor.jpg" width="400" height="400" alt="" title="">
+</span></div></div></div></div>
+
+</div>
+</div>
+</div>
+</div>
+<!-- product1Dialog Ends here -->
+
+<script src="js/minicart.min.js"></script>
+</body>
+
+</html>
